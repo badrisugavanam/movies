@@ -10,5 +10,5 @@ A movie trailer website project
 movies/
 │   ├── entertainment_center.py   -- File that need to be executed
 │   ├── fresh_tomatoes.py
-│   ├── media.py
+└── └── media.py
 ```
