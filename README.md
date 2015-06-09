@@ -6,4 +6,9 @@ A movie trailer website project
 - Clone the repo: `git clone https://github.com/badrisugavanam/movies.git`
 
 #What's included 
-
+```
+movies/
+│   ├── entertainment_center.py   -- File that need to be executed
+│   ├── fresh_tomatoes.py
+│   ├── media.py
+```
