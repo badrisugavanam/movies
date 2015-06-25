@@ -10,9 +10,11 @@ A movie trailer website project
     - clone the repo @ https://github.com/doganaydin/themoviedb and navigate to the directory of the cloned repo and do the following below 
     - pip install requests fuzzywuzzy
     - sudo python setup.py install
-#Important Request API for the https://www.themoviedb.org 
+
+#Important Request API Key  
   - Follow the steps mentioned in API Key subsection @ https://github.com/celiao/tmdbsimple
-- 
+  - Replace YOUR_API_KEY with your API Key in entertainment_center.py
+
 #What's included 
 ```
 
