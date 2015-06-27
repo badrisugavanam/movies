@@ -1,7 +1,7 @@
 import webbrowser
 import os
 import re
-# Encoding gives ascii codec can't encode character … ordinal not in range(128) for the story line received from the movie API 
+# Encoding gives ascii codec cant encode character ordinal not in range(128) for the story line received from the movie API 
 import unidecode
 # Styles and scripting for the page
 main_page_head = '''
