@@ -10,6 +10,8 @@ A movie trailer website project
     - clone the repo @ https://github.com/doganaydin/themoviedb and navigate to the directory of the cloned repo and do the following below 
     - pip install requests fuzzywuzzy
     - sudo python setup.py install
+- Install uniencode to avoid encoding/decoding issues from the movie results fetched from API
+    - pip install unidecode
 
 #Important Request API Key  
   - Follow the steps mentioned in API Key subsection @ https://github.com/celiao/tmdbsimple
@@ -17,9 +19,9 @@ A movie trailer website project
 
 #What's included 
 ```
-
 movies/
-│   ├── entertainment_center.py   -- File that need to be executed
+│   ├── entertainment_center.py   -- Run like python entertainment_center.py
 │   ├── fresh_tomatoes.py
+│   ├── fresh_tomatoes.log <Will be generated after executing entertainment_center.py
 └── └── media.py
 ```
