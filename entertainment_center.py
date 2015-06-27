@@ -1,17 +1,32 @@
 import media
 import fresh_tomatoes
 
-#For Getting trailer a movie uses API for https://www.themoviedb.org/ using the lib@https://github.com/badrisugavanam/tmdbsimple
+# For Getting trailer a movie uses API for https://www.themoviedb.org/ using the lib@https://github.com/badrisugavanam/tmdbsimple
 import tmdbsimple as upcomingmovies
 
-#For all the movie info of a particular movie from https://www.themoviedb.org/ using the lib@https://github.com/badrisugavanam/themoviedb
+# For all the movie info of a particular movie from https://www.themoviedb.org/ using the lib@https://github.com/badrisugavanam/themoviedb
 import tmdb
 import json
 import logging
 
-""" Builds my_movies_list fetching the latest information from https://www.themoviedb.org/  API 
-""" returns none
+
+"""entertainment center 
+If any errors in the movie information fetched from the movie API can be traced with the log file 'fresh_tomatoes.log'
+"""
+__author__ =  'Badri(bnarayanan@gmail.com)'
+__version__=  '1.1'
+
+
 def get_latest_upcoming_movie():
+    """ Returns the list of movies and their information fetched from https://www.themoviedb.org/ API
+
+    Replace YOUR_API_KEY with the actual API KEY
+    Uses two third party API for the moviedb API 
+    They are 
+      - tmdbsimple from https://github.com/celiao/tmdbsimple/tree/master/tmdbsimple for fetching the trailer information
+      - tmdb from https://github.com/doganaydin/themoviedb for fetching all the information about a specific movie 
+
+    """
     my_movies_list=[]
     tmdb.configure('YOUR_API_KEY')
     upcomingmovies.API_KEY = 'YOUR_API_KEY'
