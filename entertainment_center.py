@@ -1,30 +1,30 @@
 import media
 import fresh_tomatoes
-
-# For Getting trailer a movie uses API for https://www.themoviedb.org/ using the lib@https://github.com/badrisugavanam/tmdbsimple
 import tmdbsimple as upcomingmovies
-
-# For all the movie info of a particular movie from https://www.themoviedb.org/ using the lib@https://github.com/badrisugavanam/themoviedb
 import tmdb
 import json
 import logging
 
 
 """entertainment center 
-If any errors in the movie information fetched from the movie API can be traced with the log file 'fresh_tomatoes.log'
+If any errors in the movie information fetched from the movie API can be traced with the log 
+file 'fresh_tomatoes.log'
 """
 __author__ =  'Badri(bnarayanan@gmail.com)'
-__version__=  '1.1'
+__version__=  "$Revision$"
 
 
 def get_latest_upcoming_movie():
-    """ Returns the list of movies and their information fetched from https://www.themoviedb.org/ API
+    """ Returns the list of movies and their information fetched from https://www.themoviedb.org/
+     API
 
     Replace YOUR_API_KEY with the actual API KEY
     Uses two third party API for the moviedb API 
     They are 
-      - tmdbsimple from https://github.com/celiao/tmdbsimple/tree/master/tmdbsimple for fetching the trailer information
-      - tmdb from https://github.com/doganaydin/themoviedb for fetching all the information about a specific movie 
+      - tmdbsimple from https://github.com/celiao/tmdbsimple/tree/master/tmdbsimple for fetching
+        the trailer information
+      - tmdb from https://github.com/doganaydin/themoviedb for fetching all the information 
+        about a specific movie 
 
     """
     my_movies_list=[]
@@ -40,11 +40,20 @@ def get_latest_upcoming_movie():
         trailers.videos()
         if(len(trailers.results) <> 0):
             d=trailers.results[0]
-            logger.debug("trailer url"+"https://www.youtube.com/watch?v="+d['key'])
-            logger.debug("movie title"+movieinfo.get_title())
-            logger.debug("movie overview"+movieinfo.get_overview()) 
-            logger.debug("movie release date"+movieinfo.get_release_date())
-            movieresults=media.Movie(movieinfo.get_title(),movieinfo.get_poster('m'),"https://www.youtube.com/watch?v="+d['key'],movieinfo.get_overview(),movieinfo.get_release_date())
+            logger.debug("trailer url: "+"https://www.youtube.com/watch?v="+d['key'])
+            logger.debug("movie title: "+movieinfo.get_title())
+            logger.debug("movie overview: "+movieinfo.get_overview()) 
+            logger.debug("movie release date: "+movieinfo.get_release_date())
+            posterurl=movieinfo.get_poster('m')
+            if posterurl is None:
+                posterurl="https://upload.wikimedia.org/wikipedia/en/archive/d/d6" \
+                          "/20080101230921%21Image_coming_soon.png"
+            logger.debug("poster image url: "+posterurl)
+
+            # if there is no poster image in the API put up a default coming soon image from https://upload.wikimedia.org/wikipedia/en/archive/d/d6/20080101230921%21Image_coming_soon.png
+            movieresults=media.Movie(movieinfo.get_title(), \
+                posterurl,"https://www.youtube.com/watch?v="+d['key'], \
+                movieinfo.get_overview(),movieinfo.get_release_date())
             my_movies_list.append(movieresults)
     fresh_tomatoes.open_movies_page(my_movies_list)
 

@@ -1,7 +1,8 @@
 import webbrowser
 import os
 import re
-
+# Encoding gives “'ascii' codec can't encode character … ordinal not in range(128) for the story line received from the movie API 
+import unidecode
 # Styles and scripting for the page
 main_page_head = '''
 <head>
@@ -122,6 +123,8 @@ movie_tile_content = '''
 <div class="col-md-6 col-lg-4 movie-tile text-center" data-trailer-youtube-id="{trailer_youtube_id}" data-toggle="modal" data-target="#trailer">
     <img src="{poster_image_url}" width="220" height="342">
     <h2>{movie_title}</h2>
+    <h5>Releasing on {release_date}</h5>
+    <h6>{story_line}<h6>
 </div>
 '''
 
@@ -133,12 +136,13 @@ def create_movie_tiles_content(movies):
         youtube_id_match = re.search(r'(?<=v=)[^&#]+', movie.trailer_youtube_url)
         youtube_id_match = youtube_id_match or re.search(r'(?<=be/)[^&#]+', movie.trailer_youtube_url)
         trailer_youtube_id = youtube_id_match.group(0) if youtube_id_match else None
-
         # Append the tile for the movie with its content filled in
         content += movie_tile_content.format(
             movie_title=movie.title,
             poster_image_url=movie.poster_image_url,
-            trailer_youtube_id=trailer_youtube_id
+            trailer_youtube_id=trailer_youtube_id,
+            release_date=movie.release_date,
+            story_line=unidecode.unidecode(movie.storyline)
         )
     return content
 
