@@ -50,7 +50,8 @@ def get_latest_upcoming_movie():
                           "/20080101230921%21Image_coming_soon.png"
             logger.debug("poster image url: "+posterurl)
 
-            # if there is no poster image in the API put up a default coming soon image from https://upload.wikimedia.org/wikipedia/en/archive/d/d6/20080101230921%21Image_coming_soon.png
+            # if there is no poster image in the API put up a default coming soon image from 
+            # https://upload.wikimedia.org/wikipedia/en/archive/d/d6/20080101230921%21Image_coming_soon.png
             movieresults=media.Movie(movieinfo.get_title(), \
                 posterurl,"https://www.youtube.com/watch?v="+d['key'], \
                 movieinfo.get_overview(),movieinfo.get_release_date())
