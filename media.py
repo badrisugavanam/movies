@@ -3,7 +3,7 @@
 media module contains Movie class 
 """
 __author__ =  'Badri(bnarayanan@gmail.com)'
-__version__=  "$Revision$"
+__version__=  '1.5'
 
 import webbrowser
 class Movie :

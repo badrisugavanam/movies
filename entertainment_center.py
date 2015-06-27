@@ -11,7 +11,7 @@ If any errors in the movie information fetched from the movie API can be traced 
 file 'fresh_tomatoes.log'
 """
 __author__ =  'Badri(bnarayanan@gmail.com)'
-__version__=  "$Revision$"
+__version__=  '1.5'
 
 
 def get_latest_upcoming_movie():
